@@ -1,0 +1,58 @@
+### Daftar Pengguna Baru
+POST http://localhost:3000/users/register
+Content-Type: application/json
+
+{
+  "email": "pengguna@example.com",
+  "password": "passwordku",
+  "nama_lengkap": "Nama Lengkap",
+  "nomor_hp": "08123456789"
+}
+
+### Login Pengguna
+POST http://localhost:3000/users/login
+Content-Type: application/json
+
+{
+  "email": "pengguna@example.com",
+  "password": "passwordku"
+}
+
+### Dapatkan Daftar Produk
+GET http://localhost:3000/products
+
+### Dapatkan Detail Produk
+GET http://localhost:3000/products/product_id_value
+
+### Buat Transaksi Baru
+POST http://localhost:3000/orders
+Content-Type: application/json
+Authorization: Bearer access_token_value
+
+{
+  "product_id": "product_id_value",
+  "jumlah": 1,
+  "metode_pembayaran": "transfer_bank",
+  "detail_pembayaran": {
+    "nomor_rekening": "1234567890",
+    "bank": "BCA"
+  }
+}
+
+### Dapatkan Daftar Transaksi Pengguna
+GET http://localhost:3000/orders
+Authorization: Bearer access_token_value
+
+### Dapatkan Daftar Akun Pengguna
+GET http://localhost:3000/accounts
+Authorization: Bearer access_token_value
+
+### Verifikasi Pembayaran
+POST http://localhost:3000/payments/verify
+Content-Type: application/json
+Authorization: Bearer access_token_value
+
+{
+  "order_id": "order_id_value",
+  "bukti_transfer": "url_gambar_bukti_transfer.jpg"
+}
